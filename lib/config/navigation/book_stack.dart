@@ -8,9 +8,10 @@ class BookStack extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/book',
         routes: {
-          '/': (context) => const Book(),
+          '/book': (context) => const Book(),
+          '/detail': (context) => const Book(),
         });
   }
 }

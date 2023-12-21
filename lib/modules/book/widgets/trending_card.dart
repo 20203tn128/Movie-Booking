@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_booking/config/themes/colors_app.dart';
 
-class TrendingCard extends StatelessWidget {
+class TrendingCard extends StatefulWidget {
   final String title;
   final String image;
   final String date;
@@ -14,6 +14,11 @@ class TrendingCard extends StatelessWidget {
       required this.rating});
 
   @override
+  State<TrendingCard> createState() => _TrendingCardState();
+}
+
+class _TrendingCardState extends State<TrendingCard> {
+  @override
   Widget build(BuildContext context) {
     return Card(
       color: ColorsApp.darkblue,
@@ -21,14 +26,14 @@ class TrendingCard extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(
-            image,
+            widget.image,
             width: 150,
             height: 150,
           ),
           SizedBox(
             width: 150,
             child: Text(
-              title,
+              widget.title,
               style: TextStyle(
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
@@ -46,14 +51,14 @@ class TrendingCard extends StatelessWidget {
                   size: 15,
                 ),
                 Text(
-                  rating.toString(),
+                  widget.rating.toString(),
                   style: TextStyle(color: ColorsApp.white, fontSize: 12),
                 )
               ],
             ),
           ),
           Text(
-            date,
+            widget.date,
             style: TextStyle(
                 fontFamily: 'Poppins', fontSize: 12, color: ColorsApp.white),
           ),
