@@ -21,7 +21,22 @@ class Trending extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
+                TrendingCard(
+                  title:
+                      'Avengers asjkdhkajsdhfjsdagfhagdfjhgadkfjasdhfgsadkfjhasdhfkashdgfhasdgfkgasdfjgaksdfghj',
+                  image: 'assets/images/avengers.jpg',
+                  date: '2023-12-20',
+                  rating: 6.7,
+                ),
+                TrendingCard(
+                  title:
+                      'Avengers asjkdhkajsdhfjsdagfhagdfjhgadkfjasdhfgsadkfjhasdhfkashdgfhasdgfkgasdfjgaksdfghj',
+                  image: 'assets/images/avengers.jpg',
+                  date: '2023-12-20',
+                  rating: 6.7,
+                ),
                 TrendingCard(
                   title:
                       'Avengers asjkdhkajsdhfjsdagfhagdfjhgadkfjasdhfgsadkfjhasdhfkashdgfhasdgfkgasdfjgaksdfghj',
