@@ -20,17 +20,42 @@ class Book extends StatelessWidget {
         backgroundColor: ColorsApp.darkblue,
         elevation: 0,
       ),
-      body: const Column(children: [
-        Trending(),
-        Padding(
-          padding: EdgeInsets.only(top: 8.0),
-          child: Row(
-            children: [
-              NowPlaying(),
-            ],
+      body: SingleChildScrollView(
+        child: Column(children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              color: Colors.grey[600],
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Row(children: [
+                  const Expanded(
+                      child: TextField(
+                          decoration: InputDecoration(
+                              hintText: 'Search',
+                              hintTextDirection: TextDirection.ltr))),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.search),
+                  )
+                ]),
+              ),
+            ),
           ),
-        )
-      ]),
+          Trending(),
+          Padding(
+            padding: EdgeInsets.only(top: 8.0),
+            child: Row(
+              children: [
+                NowPlaying(),
+              ],
+            ),
+          )
+        ]),
+      ),
     );
   }
 }
