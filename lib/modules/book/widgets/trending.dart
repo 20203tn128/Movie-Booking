@@ -55,8 +55,8 @@ class _TrendingState extends State<Trending> {
 
   @override
   void initState() {
-    super.initState();
     fetchMovies();
+    super.initState();
   }
 
   @override

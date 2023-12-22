@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_booking/config/themes/colors_app.dart';
 
 class BookDetail extends StatelessWidget {
-  const BookDetail({super.key});
+  const BookDetail({super.key,});
 
   @override
   Widget build(BuildContext context) {

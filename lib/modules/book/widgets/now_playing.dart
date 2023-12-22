@@ -47,8 +47,8 @@ class _NowPlayingState extends State<NowPlaying> {
 
   @override
   void initState() {
-    super.initState();
     fetchMovies();
+    super.initState();
   }
 
   @override
