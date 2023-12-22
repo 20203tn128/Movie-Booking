@@ -11,6 +11,7 @@ class NowPlaying extends StatefulWidget {
 
 class _NowPlayingState extends State<NowPlaying> {
   List<dynamic> movies = [];
+  String image = 'https://image.tmdb.org/t/p/w130_and_h195_bestv2';
   Future<void> fetchMovies() async {
     final dio = Dio();
     final String url =
@@ -29,7 +30,7 @@ class _NowPlayingState extends State<NowPlaying> {
         movies = response.data['results']
             .map((movie) => {
                   'title': movie['title'],
-                  'image': 'assets/images/avengers.jpg',
+                  'image': image + movie['poster_path'],
                   'date': movie['release_date'],
                   'rating': movie['vote_average'],
                   'language': movie['original_language'],

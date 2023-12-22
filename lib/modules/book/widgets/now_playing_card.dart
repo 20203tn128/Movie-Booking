@@ -41,7 +41,7 @@ class NowPlayingCard extends StatelessWidget {
           children: [
             Column(
               children: [
-                Image.asset(
+                Image.network(
                   image,
                   width: 150,
                   height: 150,

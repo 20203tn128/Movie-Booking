@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_booking/modules/book/screens/book.dart';
+import 'package:movie_booking/modules/book/screens/book_detail.dart';
 
 class BookStack extends StatelessWidget {
   const BookStack({super.key});
@@ -11,7 +12,7 @@ class BookStack extends StatelessWidget {
         initialRoute: '/book',
         routes: {
           '/book': (context) => const Book(),
-          '/detail': (context) => const Book(),
+          '/detail': (context) => const BookDetail(),
         });
   }
 }

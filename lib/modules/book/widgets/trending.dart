@@ -14,6 +14,7 @@ class Trending extends StatefulWidget {
 
 class _TrendingState extends State<Trending> {
   List<dynamic> movies = [];
+  String image = 'https://www.themoviedb.org/t/p/w130_and_h195_bestv2';
   Future<void> fetchMovies() async {
     final dio = Dio();
     final String url =
@@ -23,22 +24,30 @@ class _TrendingState extends State<Trending> {
 
     try {
       print('fetching data');
+      print('Si esta aqui');
       final Response response = await dio.get(url,
           options: Options(
             headers: {'Authorization': token, 'accept': 'application/json'},
           ));
       print(response);
       if (response.statusCode == 200) {
+        print(response.statusCode);
         movies = response.data['results']
             .map((movie) => {
                   'title': movie['title'],
-                  'image': 'assets/images/avengers.jpg',
+                  'image': image + movie['poster_path'],
                   'date': movie['release_date'],
                   'rating': movie['vote_average'],
+                  'language': movie['original_language'],
+                  'originalTitle': movie['original_title'],
+                  'overview': movie['overview']
                 })
             .toList();
       }
+      print('Debio de imprimir el response aqui en trending');
       print(movies);
+      print('Esta es la direccion de la imagen');
+      print(image);
     } catch (e) {
       print('Ocurrio un erro  $e');
     }
@@ -73,6 +82,9 @@ class _TrendingState extends State<Trending> {
                           image: movie['image'],
                           date: movie['date'],
                           rating: movie['rating'],
+                          language: movie['language'],
+                          originalTitle: movie['originalTitle'],
+                          overview: movie['overview'],
                         ))
                     .toList()),
           ),

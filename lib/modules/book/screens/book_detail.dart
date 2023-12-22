@@ -14,6 +14,7 @@ class BookDetail extends StatelessWidget {
     final date = arguments['date'] ?? '';
     final rating = arguments['rating'] ?? '';
     final language = arguments['language'] ?? '';
+    print(language);
     final originalTitle = arguments['originalTitle'] ?? '';
     final overview = arguments['overview'] ?? '';
     return Scaffold(
@@ -25,52 +26,122 @@ class BookDetail extends StatelessWidget {
         elevation: 0,
       ),
       body: Card(
+        color: ColorsApp.darkblue,
         elevation: 3,
         child: Column(
           children: [
-            Image.asset(
-              image,
-              width: 150,
-              height: 150,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.network(
+                image,
+                width: 400,
+                height: 200,
+              ),
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 150,
-                  child: Text(
-                    title,
+            SizedBox(
+              width: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 320,
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          color: ColorsApp.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 320,
+                    child: Text(
+                      'Original title: $originalTitle',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                          color: ColorsApp.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 150,
+                    child: Text(
+                      language == 'en'
+                          ? 'Language: English '
+                          : 'Language: Spanish',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                          color: ColorsApp.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    color: ColorsApp.orange,
+                    size: 15,
+                  ),
+                  Text(
+                    rating.toString(),
+                    style: TextStyle(color: ColorsApp.white, fontSize: 12),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0, left: 8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 340,
+                    child: Text(
+                      overview,
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                          color: ColorsApp.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Release date: $date',
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
                         fontSize: 12,
                         color: ColorsApp.white),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: ColorsApp.orange,
-                        size: 15,
-                      ),
-                      Text(
-                        rating.toString(),
-                        style: TextStyle(color: ColorsApp.white, fontSize: 12),
-                      )
-                    ],
-                  ),
-                ),
-                Text(
-                  date,
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 12,
-                      color: ColorsApp.white),
-                ),
-              ],
-            )
+                ],
+              ),
+            ),
           ],
         ),
       ),
