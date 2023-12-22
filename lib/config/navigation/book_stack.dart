@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_booking/modules/book/screens/book.dart';
+import 'package:movie_booking/modules/book/screens/book_detail.dart';
 
 class BookStack extends StatelessWidget {
   const BookStack({super.key});
@@ -8,9 +9,10 @@ class BookStack extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/book',
         routes: {
-          '/': (context) => const Book(),
+          '/book': (context) => const Book(),
+          '/detail': (context) => const BookDetail(),
         });
   }
 }
